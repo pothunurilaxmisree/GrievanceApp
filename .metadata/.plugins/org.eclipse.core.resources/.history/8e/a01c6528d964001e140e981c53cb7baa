@@ -1,0 +1,9 @@
+package com.teja.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.teja.entity.UserDetails;
+
+public interface IUserRepository extends JpaRepository<UserDetails,Integer>{
+
+}

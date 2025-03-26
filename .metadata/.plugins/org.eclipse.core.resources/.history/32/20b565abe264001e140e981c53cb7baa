@@ -1,0 +1,29 @@
+package com.teja.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.teja.config.JwtUtils;
+import com.teja.repo.IRoleRepository;
+import com.teja.repo.IUserRepository;
+
+@Service
+public class LoginService {
+
+	@Autowired
+	IUserRepository userRepo;
+	
+	@Autowired
+	IRoleRepository rolerepo;
+	
+	@Autowired
+	PasswordEncoder pwdencoder;
+	
+	@Autowired
+	AuthenticationManager userAuthenticationManager;
+	
+	@Autowired
+	JwtUtils jwtutils;
+}

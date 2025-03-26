@@ -1,0 +1,36 @@
+package com.teja.service;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.teja.entity.UserDetails;
+import com.teja.model.UserDetailsModel;
+import com.teja.repo.IUserRepository;
+@Service
+public class LoginService {
+	
+	@Autowired
+	private IUserRepository userRepository;
+
+	/***
+	 * This Service Call is for Regeistring user
+	 * @param userDetailsModel
+	 * @return
+	 */
+	public ResponseEntity<String> registerUser(UserDetailsModel userDetailsModel) {
+	   try {
+		   if(userDetailsModel!=null) {
+			   UserDetails userDetails=new UserDetails();
+			   BeanUtils.copyProperties(userDetailsModel, userDetails);
+			   
+		   }
+		   
+	   }catch (Exception e) {
+		e.printStackTrace();
+	}
+		return null;
+	}
+
+}

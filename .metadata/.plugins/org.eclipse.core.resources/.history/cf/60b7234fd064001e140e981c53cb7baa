@@ -1,0 +1,20 @@
+package com.teja.service;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.teja.model.UserDetailsModel;
+@Service
+public class LoginService {
+
+	/***
+	 * This Service Call is for Regeistring user
+	 * @param userDetailsModel
+	 * @return
+	 */
+	public ResponseEntity<String> registerUser(UserDetailsModel userDetailsModel) {
+	
+		return null;
+	}
+
+}

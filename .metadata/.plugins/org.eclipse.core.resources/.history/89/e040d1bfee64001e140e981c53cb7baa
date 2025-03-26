@@ -1,0 +1,34 @@
+package com.teja.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.teja.config.JwtUtils;
+import com.teja.model.UserDetailsModel;
+import com.teja.repo.IUserRepository;
+
+@Service
+public class LoginService {
+
+	@Autowired
+	IUserRepository userRepo;
+	
+	
+	@Autowired
+	PasswordEncoder pwdencoder;
+	
+	@Autowired
+	AuthenticationManager userAuthenticationManager;
+	
+	@Autowired
+	JwtUtils jwtutils;
+
+	public ResponseEntity<String> registerUser(UserDetailsModel userDetailsModel) {
+		ResponseEntity responseEntity=null;
+		
+		return responseEntity;
+	}
+}

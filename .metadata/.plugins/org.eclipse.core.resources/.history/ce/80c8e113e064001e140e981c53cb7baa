@@ -1,0 +1,112 @@
+package com.teja.controller;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.teja.config.JwtUtils;
+import com.teja.repo.IRoleRepository;
+import com.teja.repo.IUserRepository;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+/***
+ * @author SaiTeja
+ */
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController("/login")
+public class LoginController {
+
+	@Autowired
+	IUserRepository userRepo;
+	
+	@Autowired
+	IRoleRepository rolerepo;
+	
+	@Autowired
+	PasswordEncoder pwdencoder;
+	
+	@Autowired
+	AuthenticationManager userAuthenticationManager;
+	
+	@Autowired
+	JwtUtils jwtutils;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * @Autowired private LoginService loginService;
+	 * 
+	 *//***
+		 * This Call is For Registering User
+		 * 
+		 * @param userDetailsModel
+		 * @return
+		 */
+	/*
+	 * @PostMapping("/register_user") public ResponseEntity<String>
+	 * registerUser(@RequestBody UserDetailsModel userDetailsModel){ return
+	 * loginService.registerUser(userDetailsModel); }
+	 * 
+	 *//**
+		 * This Call is For Validating userLogin Details
+		 * 
+		 * @param userName
+		 * @param password
+		 * @return
+		 *//*
+			 * @PostMapping("/validate_login") public ResponseEntity<String>
+			 * validateLoginUser(@RequestParam("userName") String
+			 * userName,@RequestParam("password")String password){ return
+			 * loginService.validateLoginUser(userName,password); }
+			 */
+
+}

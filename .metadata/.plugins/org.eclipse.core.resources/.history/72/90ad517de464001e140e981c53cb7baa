@@ -1,0 +1,91 @@
+package com.teja.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.teja.model.UserDetailsModel;
+import com.teja.service.LoginService;
+
+/***
+ * @author SaiTeja
+ */
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
+public class LoginController {
+	
+	@Autowired
+	private LoginService  loginService;
+	
+	@PostMapping("/register_user")
+	public ResponseEntity<String> registerUser(@RequestBody UserDetailsModel userDetailsModel){
+		return loginService.registerUser(userDetailsModel);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * @Autowired private LoginService loginService;
+	 * 
+	 *//***
+		 * This Call is For Registering User
+		 * 
+		 * @param userDetailsModel
+		 * @return
+		 */
+	/*
+	 * @PostMapping("/register_user") public ResponseEntity<String>
+	 * registerUser(@RequestBody UserDetailsModel userDetailsModel){ return
+	 * loginService.registerUser(userDetailsModel); }
+	 * 
+	 *//**
+		 * This Call is For Validating userLogin Details
+		 * 
+		 * @param userName
+		 * @param password
+		 * @return
+		 *//*
+			 * @PostMapping("/validate_login") public ResponseEntity<String>
+			 * validateLoginUser(@RequestParam("userName") String
+			 * userName,@RequestParam("password")String password){ return
+			 * loginService.validateLoginUser(userName,password); }
+			 */
+
+}

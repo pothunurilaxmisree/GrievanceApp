@@ -1,0 +1,39 @@
+package com.teja.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="user_det")
+@Data
+public class UserDetails {
+
+	@Id
+	@Column(name = "uid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long userDetailId;
+
+	@Column(name = "first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name = "mobile")
+	private String mobileNumber;
+	
+	@Column(name = "role")
+	private String userType;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name="password")
+	private String password;
+}

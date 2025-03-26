@@ -1,0 +1,5 @@
+package com.teja.entity;
+
+public enum Role {
+
+}

@@ -1,0 +1,49 @@
+package com.teja.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Data;
+
+@Entity
+@Table(name="user_det")
+@Data
+public class UserDetails {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
+	
+	@Column(name="f_name")
+	private String firstName;
+	
+	@Column(name="l_name")
+	private String lastName;
+	
+	@Column(name="mob_number")
+	private String mobileNumber;
+
+	@Column(name="user_name")
+	private String username;
+
+	@JsonIgnore
+	@Column(name="password")
+	private String password;
+	
+	private String roles;
+
+
+
+}

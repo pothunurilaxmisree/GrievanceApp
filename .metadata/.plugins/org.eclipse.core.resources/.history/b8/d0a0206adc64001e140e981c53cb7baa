@@ -1,0 +1,7 @@
+package com.teja.config;
+
+
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	
+}

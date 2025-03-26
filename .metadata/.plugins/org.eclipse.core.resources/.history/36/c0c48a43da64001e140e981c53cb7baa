@@ -1,0 +1,75 @@
+package com.teja.service;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.teja.entity.UserDetails;
+import com.teja.model.UserDetailsModel;
+import com.teja.repo.IUserRepository;
+@Service
+public class LoginService {
+	
+	@Autowired
+	private IUserRepository userRepository;
+
+	/***
+	 * This Service Call is for Regeistring user
+	 * @param userDetailsModel
+	 * @return
+	 */
+	
+	public ResponseEntity<String> registerUser(UserDetailsModel userDetailsModel) {
+		ResponseEntity<String> response=null;
+	   try {
+		   if(userDetailsModel!=null) {
+			   UserDetails userDetails=new UserDetails();
+			   BeanUtils.copyProperties(userDetailsModel,userDetails);
+			   int id =(int)userRepository.save(userDetails).getUserDetailId();
+			   response=new ResponseEntity<String>("User"+id+"Created Successfully",HttpStatus.OK);
+		   }		   
+	   }catch (Exception e) {
+		   response=new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+		e.printStackTrace();
+	}
+		return response;
+	}
+
+	/***
+	 * This Service Call is For Validating Login User
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	public ResponseEntity<String> validateLoginUser(String userName, String password) {
+    ResponseEntity<String> response=null;
+			try {
+				if(userName!=null&&password!=null) {
+				//Step1 find the userName from userDetail table 
+				UserDetails userDetails=userRepository.findByEmail(userName);
+			 if(userDetails!=null) {
+				 //step2 validate the password 
+				 if(userDetails.getPassword().equalsIgnoreCase(password) &&userDetails.getEmail().equalsIgnoreCase(userName)) {	
+					 response= new ResponseEntity<String>("User"+userDetails.getUserType(),HttpStatus.OK);
+				 }else {
+					 response=new ResponseEntity<String>("Invalid UserName or Password",HttpStatus.OK);
+				 }				 
+			 }else {
+				 return new ResponseEntity<String>("User not Found",HttpStatus.NOT_FOUND);
+			 }
+						
+				}
+			}catch (Exception e) {
+				// TODO: handle exception
+			}	
+	
+		return response;
+	}
+	
+	
+	
+
+}

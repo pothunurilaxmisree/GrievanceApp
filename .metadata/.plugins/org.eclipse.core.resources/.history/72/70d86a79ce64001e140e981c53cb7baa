@@ -1,0 +1,29 @@
+package com.teja.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class UserDetails {
+
+	
+	  @Id
+	  
+	  @Column(name="uid")
+	 
+	private long userDetailId;
+	
+	@Column(name="uname")
+	private String userName;
+	
+	@Column(name="role")
+	private String UserType;
+	
+	@Column(name="email")
+	private String email;
+	
+@Column(name="mobile")
+	private String mobileNumber;
+	
+
+	
+}
